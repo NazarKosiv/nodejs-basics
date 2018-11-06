@@ -1,6 +1,9 @@
-const http = require('http');
+const express = require('express');
+
 const routesManager = require('./routes');
 
-http.createServer((req, res) => {
-    routesManager(req, res);
-}).listen(5000);
+const app = express();
+
+routesManager(app);
+
+app.listen(5000);

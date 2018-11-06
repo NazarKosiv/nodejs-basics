@@ -34,9 +34,7 @@ function storeNewUser(user, res) {
                 if (error) {
                     console.log(error);
                 } else {
-                    res.statusCode = 302;
-                    res.setHeader('Location', '/users');
-                    res.end();
+                    res.redirect('/users');
                 }
             });
         } else {

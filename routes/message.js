@@ -21,9 +21,7 @@ function message(req, res) {
         });
     });
 
-    res.statusCode = 302;
-    res.setHeader('Location', '/contact');
-    res.end();
+    res.redirect('/contact');
 }
 
 module.exports = message;
