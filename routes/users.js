@@ -34,7 +34,7 @@ function users(res) {
                         </nav>
                         <hr>
                         <ul>${userList}</ul>
-                        <form action="/addUser" method="POST">
+                        <form action="/addUser" method="GET">
                             <button type="submit">Add user</button>
                         </form>
                     </body>
