@@ -1,27 +1,9 @@
 const fs = require('fs');
 
 function createUser(req, res) {
-    const initialData = [];
+    const user = req.body;
 
-    req.on('data', data => {
-        initialData.push(data);
-    });
-
-    req.on('end', () => {
-        const parsedData = Buffer.concat(initialData).toString();
-        const user = pullOutUserData(parsedData);
-
-        storeNewUser(user, res);
-    });
-}
-
-function pullOutUserData(data) {
-    const userData = data.split('&');
-    const name = userData.filter(val => val.includes('name') === true)[0].split('=')[1].split('+').join(' ');
-    const age = userData.filter(val => val.includes('age') === true)[0].split('=')[1];
-    const country = userData.filter(val => val.includes('country') === true)[0].split('=')[1].split('+').join(' ');
-
-    return { name, age, country };
+    storeNewUser(user, res);
 }
 
 function storeNewUser(user, res) {

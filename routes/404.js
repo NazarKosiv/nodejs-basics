@@ -1,14 +1,7 @@
-function notFound(res) {
-    const tmpl = `<html>
-                    <head></head>
-                    <body>
-                        <h1 style="text-align: center">404 (Not Found)!</h1>
-                    </body>
-                  </html>`;
+const path = require('path');
 
-    res.setHeader('Content-Type', 'text/html');
-    res.write(tmpl);
-    res.end();
+function notFound(res) {
+    res.status(404).sendFile(path.join(__dirname, '../', 'views', '404.html'));
 }
 
 module.exports = notFound;
