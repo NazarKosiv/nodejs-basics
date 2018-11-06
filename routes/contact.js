@@ -34,9 +34,7 @@ function contact(res) {
                     </body>
                   </html>`;
 
-    res.setHeader('Content-Type', 'text/html');
-    res.write(tmpl);
-    res.end();
+    res.send(tmpl);
 }
 
 module.exports = contact;
